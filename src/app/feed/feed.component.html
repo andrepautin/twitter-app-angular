@@ -1,3 +1,11 @@
 <div *ngFor="let tweet of tweets">
-
+  <p class="feed-body">{{tweet.user}}</p>
+  <div class="feed-body" (click)="handleClickTweet(tweet.id)">
+    <p>{{tweet.text}}</p>   
+    <div>
+      <button>Respond</button>
+      <button>Retweet</button>&nbsp;<span>{{tweet.retweets}}</span>
+      <button>Like</button>&nbsp;<span>{{tweet.likes}}</span>
+    </div>
+  </div>
 </div>
