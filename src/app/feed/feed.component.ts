@@ -11,7 +11,8 @@ export class FeedComponent implements OnInit {
     {
       id: 1,
       text: "hello world", 
-      user: "Andre", 
+      displayName: "Andre", 
+      userName: "@NAP12",
       timestamp: "01/01/21",
       likes: 40, 
       retweets: 22,
@@ -19,7 +20,8 @@ export class FeedComponent implements OnInit {
     {
       id: 2,
       text: "hello there", 
-      user: "Gab", 
+      displayName: "Gab", 
+      userName: "@gaabsters",
       timestamp: "01/01/21",
       likes: 35, 
       retweets: 21,
@@ -27,7 +29,8 @@ export class FeedComponent implements OnInit {
     {
       id: 3,
       text: "sugma", 
-      user: "Andre", 
+      displayName: "Andre", 
+      userName: "@napruto",
       timestamp: "01/01/21",
       likes: 80, 
       retweets: 45,
@@ -40,7 +43,11 @@ export class FeedComponent implements OnInit {
   }
 
   handleClickTweet(id: number) {
-    this.router.navigateByUrl('/tweets/' + id);
+    this.router.navigateByUrl("/tweets/" + id);
+  }
+
+  handleClickUser(userName: string) {
+    this.router.navigateByUrl("/profile/" + userName);
   }
 
 }

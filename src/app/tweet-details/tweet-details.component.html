@@ -1,5 +1,7 @@
 <div>
-  <p>{{tweet.user}}</p>
+  <div>
+    <p class="tweet-header" (click)="handleClickUser(tweet.userName)">{{tweet.displayName}}</p>
+  </div>
   <p>{{tweet.text}}</p>
   <p>{{tweet.timestamp}}</p>
   <div>

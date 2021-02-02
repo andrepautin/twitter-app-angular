@@ -1,5 +1,5 @@
 <div *ngFor="let tweet of tweets">
-  <p class="feed-body">{{tweet.user}}</p>
+  <p class="feed-body" (click)="handleClickUser(tweet.userName)">{{tweet.displayName}}</p>
   <div class="feed-body" (click)="handleClickTweet(tweet.id)">
     <p>{{tweet.text}}</p>   
     <div>
