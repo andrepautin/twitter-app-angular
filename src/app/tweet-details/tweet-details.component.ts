@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-tweet-details',
@@ -11,15 +12,18 @@ export class TweetDetailsComponent implements OnInit {
     id: 1,
     text: "hello world", 
     displayName: "Andre", 
-    userName: "@NAP12",
+    userName: "NAP12",
     timestamp: "01/01/21",
     likes: 40, 
     retweets: 22,
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    if (this.userService.getCurrentUser() === "") {
+      this.router.navigateByUrl("/login");
+    }
   }
 
   handleClickUser(userName: string) {
