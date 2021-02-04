@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -8,6 +8,9 @@ import { UserService } from '../user.service';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
+  @ViewChild("userTweetInputRef") myUserTweetInputRef!: ElementRef;
+  isTyping: boolean = false;
+
   tweets: any[] = [
     {
       id: 1,
@@ -54,4 +57,22 @@ export class FeedComponent implements OnInit {
     this.router.navigateByUrl("/profile/" + userName);
   }
 
+  sendTweet() {
+    let newTweet = this.myUserTweetInputRef.nativeElement.value;
+    if (newTweet !== "") {
+      this.tweets.unshift({
+        id: 0,
+        text: newTweet,
+        displayName: "NAME",
+        userName: this.userService.getCurrentUser(),
+        timestamp: "00/00/0000",
+        likes: 0,
+        retweets: 0,
+      });
+    }
+  }
+
+  userIsTyping() {
+    this.isTyping = true;
+  }
 }

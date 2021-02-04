@@ -1,11 +1,14 @@
+<h3>Compose a Tweet!</h3>
+<textarea #userTweetInputRef placeholder="say something" (click)="userIsTyping()"></textarea>&nbsp;
+<button *ngIf="isTyping" (click)="sendTweet()">Send Tweet</button>
 <div *ngFor="let tweet of tweets">
   <p class="feed-body" (click)="handleClickUser(tweet.userName)">{{tweet.displayName}}</p>
   <div class="feed-body" (click)="handleClickTweet(tweet.id)">
     <p>{{tweet.text}}</p>   
-    <div>
-      <button>Respond</button>
-      <button>Retweet</button>&nbsp;<span>{{tweet.retweets}}</span>
-      <button>Like</button>&nbsp;<span>{{tweet.likes}}</span>
-    </div>
+  </div>
+  <div>
+    <button>Respond</button>
+    <button (click)="tweet.likes = tweet.likes + 1">Like</button>&nbsp;<span>{{tweet.likes}}</span>
+    <button (click)="tweet.retweets = tweet.retweets + 1">Retweet</button>&nbsp;<span>{{tweet.retweets}}</span>
   </div>
 </div>
