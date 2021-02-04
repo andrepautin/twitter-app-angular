@@ -60,6 +60,7 @@ export class FeedComponent implements OnInit {
   sendTweet() {
     let newTweet = this.myUserTweetInputRef.nativeElement.value;
     if (newTweet !== "") {
+      this.isTyping = false;
       this.tweets.unshift({
         id: 0,
         text: newTweet,
@@ -69,6 +70,7 @@ export class FeedComponent implements OnInit {
         likes: 0,
         retweets: 0,
       });
+      this.myUserTweetInputRef.nativeElement.value = "";
     }
   }
 
