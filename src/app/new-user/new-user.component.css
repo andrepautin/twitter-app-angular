@@ -1,0 +1,19 @@
+.header {
+    color: cornflowerblue;
+}
+
+.container p{
+    color:cornflowerblue;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+.button {
+    border-radius: 8px;
+}
+
+.textArea {
+    width: 200px;
+    height: 50px;
+}
+

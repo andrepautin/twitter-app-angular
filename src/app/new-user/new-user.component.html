@@ -1,0 +1,17 @@
+<div>
+  <h1 class="header">Create an Account</h1>
+  <p>Already have an account?</p>
+  <button (click)="goBack()">Log in</button>
+</div>
+<p>Please fill out each section below:</p>
+<div>
+  <div class="container">
+    <p>Profile Name:</p>
+    <input #newProfileNameInput placeholder="your name here"/>
+    <p>UserName:</p>
+    <input #newUserNameInput placeholder="@username"/>
+    <p>Bio:</p>
+    <textarea class="textArea" #newUserBioInput placeholder="tell us about yourself!"></textarea>
+  </div>
+</div>
+<button (click)="handleNewAccount()">Start Tweeting!</button>

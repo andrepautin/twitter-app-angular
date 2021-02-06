@@ -7,18 +7,22 @@ import { FeedComponent } from './feed/feed.component';
 import { TweetDetailsComponent } from './tweet-details/tweet-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
       FeedComponent,
       TweetDetailsComponent,
       ProfileComponent,
-      LoginComponent
+      LoginComponent,
+      NewUserComponent
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

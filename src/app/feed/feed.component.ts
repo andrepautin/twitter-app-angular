@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-feed',
@@ -10,6 +12,7 @@ import { UserService } from '../user.service';
 export class FeedComponent implements OnInit {
   @ViewChild("userTweetInputRef") myUserTweetInputRef!: ElementRef;
   isTyping: boolean = false;
+  currentUser: string = "";
 
   tweets: any[] = [
     {
@@ -41,12 +44,20 @@ export class FeedComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private httpClient: HttpClient) { }
 
   ngOnInit() {
+    this.httpClient.get("https://cabral-hero-server-java.herokuapp.com/api/heroes").subscribe(
+      response => {
+        console.log(response)
+      }, err => {
+        console.log(err);
+      }
+    );
     if (this.userService.getCurrentUser() === "") {
       this.router.navigateByUrl("/login");
     }
+    this.currentUser = this.userService.getCurrentUser();
   }
 
   handleClickTweet(id: number) {
@@ -76,5 +87,9 @@ export class FeedComponent implements OnInit {
 
   userIsTyping() {
     this.isTyping = true;
+  }
+
+  signOutUser() {
+    this.router.navigateByUrl("/login");
   }
 }

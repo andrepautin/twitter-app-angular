@@ -1,3 +1,30 @@
 .feed-body:hover {
     cursor: pointer;
 }
+
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    border: 1px #ccc solid;
+    padding: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+.generate-tweet {
+    color: cornflowerblue;
+}
+
+.header {
+    text-align: center;
+}
+
+.signOutButton {
+    float: right;
+}
+
+.textArea {
+    width: 200px;
+    height: 50px;
+}

@@ -1,6 +1,17 @@
 <div>
+  <h3 class="generate-tweet">Tweet Something!</h3>
+  <textarea class="textArea" #userTweetInputRef placeholder="say something" (focus)="userIsTyping()"></textarea>&nbsp;
+  <button *ngIf="isTyping" (click)="sendTweet()">Send Tweet</button>
+  <button class="signOutButton" (click)="signOutUser()">Sign Out</button>
+</div>
+<div>
+  <button (click)="goToHomePage()">Home</button>&nbsp;
+  <button (click)="goBack()">Back</button>
+</div>
+<h2 class="header">{{userProfile.displayName}}'s Profile</h2>
+<div class="container-1">
   <h2>{{userProfile.displayName}}</h2>
-  <h5>{{userProfile.userName}}</h5>
+  <h6>@{{userProfile.userName}}</h6>
   <p>"{{userProfile.bio}}"</p>
   <div>
     Followers: <span>{{userProfile.followers}}</span>&nbsp;

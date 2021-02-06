@@ -1,11 +1,22 @@
 <div>
+  <h3 class="generate-tweet">Tweet Something!</h3>
+  <textarea class="textArea" #userTweetInputRef placeholder="say something" (focus)="userIsTyping()"></textarea>&nbsp;
+  <button *ngIf="isTyping" (click)="sendTweet()">Send Tweet</button>
+  <button class="signOutButton" (click)="signOutUser()">Sign Out</button>
+</div>
+<div>
+  <button (click)="goToHomePage()">Home</button>&nbsp;
+  <button (click)="goBack()">Back</button>
+</div>
+<h2 class="head">Tweet</h2>
+<div class="container-1">
   <div>
     <p class="tweet-header" (click)="handleClickUser(tweet.userName)">{{tweet.displayName}}</p>
   </div>
   <p>{{tweet.text}}</p>
   <p>{{tweet.timestamp}}</p>
   <div>
-    <button>Respond</button>
+    <button>Respond</button>&nbsp;
     <button (click)="tweet.likes = tweet.likes + 1">Like</button>&nbsp;<span>{{tweet.likes}}</span>
     <button (click)="tweet.retweets = tweet.retweets + 1">Retweet</button>&nbsp;<span>{{tweet.retweets}}</span>
   </div>

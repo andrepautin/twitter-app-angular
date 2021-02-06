@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-tweet-details',
@@ -8,6 +9,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./tweet-details.component.css']
 })
 export class TweetDetailsComponent implements OnInit {
+  @ViewChild("userTweetInputRef") myUserTweetInputRef!: ElementRef;
   tweet: any = {
     id: 1,
     text: "hello world", 
@@ -18,7 +20,9 @@ export class TweetDetailsComponent implements OnInit {
     retweets: 22,
   }
 
-  constructor(private router: Router, private userService: UserService) { }
+  isTyping: boolean = false;
+
+  constructor(private router: Router, private userService: UserService, private location: Location) { }
 
   ngOnInit() {
     if (this.userService.getCurrentUser() === "") {
@@ -28,6 +32,26 @@ export class TweetDetailsComponent implements OnInit {
 
   handleClickUser(userName: string) {
     this.router.navigateByUrl("/profile/" + userName);
+  }
+
+  userIsTyping() {
+    this.isTyping = true;
+  }
+
+  sendTweet() {
+    
+  }
+
+  goToHomePage() {
+    this.router.navigateByUrl("/feed");
+  }
+
+  goBack() {
+    this.location.back();
+  }
+
+  signOutUser() {
+    this.router.navigateByUrl("/login");
   }
 
 }
