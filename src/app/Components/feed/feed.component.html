@@ -1,0 +1,22 @@
+<div *ngIf="!loading">
+  <div>
+    <h3 class="generate-tweet">Tweet Something!</h3>
+    <textarea class="textArea" #userTweetInputRef placeholder="say something" (focus)="userIsTyping()"></textarea>&nbsp;
+    <button *ngIf="isTyping" (click)="sendTweet()">Send Tweet</button>
+    <button class="signOutButton" (click)="signOutUser()">Sign Out</button>
+  </div>
+  <div>
+    <h2 class="header">{{currentUser}}'s Feed</h2>
+    <div class="container-1" *ngFor="let tweet of tweets">
+      <p class="feed-body" (click)="handleClickUser(tweet.user)">{{tweet.user}}</p>
+      <div class="feed-body" (click)="handleClickTweet(tweet.id)">
+        <p>{{tweet.content}}</p>   
+      </div>
+      <div>
+        <button>Respond</button>&nbsp;
+        <button (click)="tweet.likes = tweet.likes + 1">Like</button>&nbsp;<span>{{tweet.likes}}</span>
+        <button (click)="tweet.retweets = tweet.retweets + 1">Retweet</button>&nbsp;<span>{{tweet.retweets}}</span>
+      </div>
+    </div>
+  </div>
+</div>

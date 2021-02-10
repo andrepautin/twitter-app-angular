@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeedComponent } from './feed/feed.component';
-import { LoginComponent } from './login/login.component';
-import { NewUserComponent } from './new-user/new-user.component';
-import { ProfileComponent } from './profile/profile.component';
-import { TweetDetailsComponent } from './tweet-details/tweet-details.component';
+import { FeedComponent } from './Components/feed/feed.component';
+import { LoginComponent } from './Components/login/login.component';
+import { NewUserComponent } from './Components/new-user/new-user.component';
+import { ProfileComponent } from './Components/profile/profile.component';
+import { TweetDetailsComponent } from './Components/tweet-details/tweet-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/feed', pathMatch: 'full'}, 

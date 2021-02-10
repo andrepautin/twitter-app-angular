@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +18,14 @@ export class LoginComponent implements OnInit {
   login() {
     let userName = this.myUserNameInputRef.nativeElement.value;
     if (userName !== "") {
-      this.userService.setCurrentUser(userName);
-      this.router.navigateByUrl("/feed");
+      // this.userService.setCurrentUser(userName);
+      this.userService.login(userName).subscribe(
+        response => {
+          this.router.navigateByUrl("/feed");
+        }, err => {
+          console.log(err);
+        }
+      );
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../../Services/user.service';
 import { Location } from '@angular/common';
 
 @Component({
@@ -25,9 +25,9 @@ export class TweetDetailsComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private location: Location) { }
 
   ngOnInit() {
-    if (this.userService.getCurrentUser() === "") {
-      this.router.navigateByUrl("/login");
-    }
+    // if (this.userService.getCurrentUser() === "") {
+    //   this.router.navigateByUrl("/login");
+    // }
   }
 
   handleClickUser(userName: string) {

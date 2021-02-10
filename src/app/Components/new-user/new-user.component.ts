@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-new-user',

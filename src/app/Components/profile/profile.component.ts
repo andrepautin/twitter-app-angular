@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../../Services/user.service';
 import { Location } from '@angular/common';
 
 @Component({
@@ -27,9 +27,9 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.userService.getCurrentUser() === "") {
-      this.router.navigateByUrl("/login");
-    }
+    // if (this.userService.getCurrentUser() === "") {
+    //   this.router.navigateByUrl("/login");
+    // }
   }
 
   userIsTyping() {
